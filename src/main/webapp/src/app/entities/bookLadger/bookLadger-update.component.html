@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row bg-light pt-10 pl-10">
+    <h4>New Book Ladger</h4>
+  </div>
+  <div [hidden]="submitted">
+    <form (ngSubmit)="save()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Select Member</label>
+            <select class="form-control" id="member"  name="member" [(ngModel)]="bookLadger.member" required>
+              <option [ngValue]="memberOption" *ngFor="let memberOption of members">{{memberOption.firstName}} {{memberOption.lastName}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Select Book</label>
+            <select class="form-control" id="book"  name="book" [(ngModel)]="bookLadger.book">
+              <option [ngValue]="bookOption" *ngFor="let bookOption of books">{{bookOption.title}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">Issue</button>
+      <button type="submit" class="btn btn-danger ml-10" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>

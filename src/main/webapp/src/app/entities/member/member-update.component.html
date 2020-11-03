@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row bg-light pt-10 pl-10">
+    <h4>New Member</h4>
+  </div>
+  <div [hidden]="submitted">
+    <form (ngSubmit)="save()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="member.firstName" required/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="member.lastName" required/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" id="email" name="email"  [(ngModel)]="member.email" required/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Mobile</label>
+            <input type="text" class="form-control" id="mobile"  name="mobile" [(ngModel)]="member.mobile">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Gender</label>
+            <select class="form-control" id="gender"  name="gender" [(ngModel)]="member.gender">
+              <option [ngValue]="genderOption" *ngFor="let genderOption of gender">{{genderOption}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Member Type</label>
+            <select class="form-control" id="type"  name="type" [(ngModel)]="member.type">
+              <option [ngValue]="memberOption" *ngFor="let memberOption of members">{{memberOption}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">Save</button>
+      <button type="submit" class="btn btn-danger ml-10" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+logging:
+    level:
+        ROOT: DEBUG
+
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false

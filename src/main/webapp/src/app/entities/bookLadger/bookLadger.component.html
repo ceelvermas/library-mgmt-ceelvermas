@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row bg-light pt-10">
+    <div class="col-md-2">
+      <h4>Book Ladgers</h4>
+    </div>
+    <div class="col-md-8">
+      <div class="form-group">
+        <input type="text" class="form-control" id="search_id" [(ngModel)]="currentSearch" (ngModelChange)="onSearchTextChange($event)" placeholder="Search">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-sm btn-info" [routerLink]="['new']">Issue Book</button>
+    </div>
+  </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Member</th>
+        <th>Book</th>
+        <th>Issue Date</th>
+        <th>Received Date</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let bookLadger of bookLadgers; index as idx">
+        <td>{{bookLadger?.member?.firstName}} {{bookLadger.member?.lastName}}</td>
+        <td>{{bookLadger?.book?.title}}</td>
+        <td>{{bookLadger?.issuedDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{bookLadger?.receivedDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{bookLadger?.status}}</td>
+        <td><button *ngIf="!bookLadger?.receivedDate" (click)="update(bookLadger, idx)" class="btn btn-sm btn-info" >Collect</button></td>
+      </tr>
+      </tbody>
+    </table>
+</div>

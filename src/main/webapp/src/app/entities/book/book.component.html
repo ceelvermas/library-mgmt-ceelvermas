@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row bg-light pt-10">
+    <div class="col-md-2">
+      <h4>Books</h4>
+    </div>
+    <div class="col-md-8">
+      <div class="form-group">
+        <input type="text" class="form-control" id="searchbook_id" [(ngModel)]="currentSearch" (ngModelChange)="onSearchTextChange($event)" placeholder="Search Books">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-sm btn-info" [routerLink]="['book/new']">Create</button>
+    </div>
+  </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Subject</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Publication Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{book.title}}</td>
+        <td>{{book.subject}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.category}}</td>
+        <td>{{book.publicationDate | date: 'dd/MM/yyyy'}}</td>
+      <!--  <td><button (click)="update(book.id)" class="btn btn-sm btn-info" >Update</button></td> -->
+      </tr>
+      </tbody>
+    </table>
+</div>

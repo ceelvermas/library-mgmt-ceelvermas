@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row bg-light pt-10">
+    <div class="col-md-2">
+      <h4>Members</h4>
+    </div>
+    <div class="col-md-8">
+      <div class="form-group">
+        <input type="text" class="form-control" id="searchmembers_id" [(ngModel)]="currentSearch" (ngModelChange)="onSearchTextChange($event)" placeholder="Search Members">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-sm btn-info" [routerLink]="['new']">Create</button>
+    </div>
+  </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Gender</th>
+        <th>Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let member of members">
+        <td>{{member.firstName}}</td>
+        <td>{{member.lastName}}</td>
+        <td>{{member.email}}</td>
+        <td>{{member.mobile}}</td>
+        <td>{{member.gender}}</td>
+        <td>{{member.type}}</td>
+       <!-- <td><button (click)="update(member.id)" class="btn btn-sm btn-info" >Update</button></td> -->
+      </tr>
+      </tbody>
+    </table>
+</div>
